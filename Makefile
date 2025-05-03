@@ -8,6 +8,9 @@ help:
 build: ## Build smugmug-backup binary in the local env
 	GOFLAGS=-mod=vendor go build -v ./cmd/smugmug-backup/
 
+build-windows: ## Build smugmug-backup binary in the local env
+	GOOS=windows GOFLAGS=-mod=vendor go build -v ./cmd/smugmug-backup/
+
 test-short: ## Run tests with -short flag in the local env
 	GOFLAGS=-mod=vendor gotestsum --format testname -- -short -shuffle=on -cover -race -v -count=1 ./...
 
